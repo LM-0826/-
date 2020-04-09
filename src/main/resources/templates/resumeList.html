@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="am-g am-g-fixed blog-fixed index-page">
+    <div class="am-u-md-8 am-u-sm-12">
+
+        <div>
+            <tr>
+                <td>姓名</td>
+                <td>地址</td>
+                <td>电话</td>
+                <td>操作</td>
+            </tr>
+        </div>
+        <!-- 文章遍历并分页展示 : 需要同学们手动完成，基本样式已经给出，请使用th标签及表达式完成页面展示 -->
+        <div th:each="resume:${resumeList}">
+            <tr>
+                <td th:text="${resume.name}"/>
+                <td th:text="${resume.address}"/>
+                <td th:text="${resume.phone}"/>
+                <td>
+                    <a href="${pageContext.request.contextPath}/resume/resumeEdit?id=${resume.id}">修改</a>
+                    <a href="${pageContext.request.contextPath}/resume/resumeDelete?id=${resume.id}">删除</a>
+                </td>
+            </tr>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
